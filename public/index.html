@@ -48,22 +48,56 @@
             <h2>Holdings</h2>
             <p id="holdings-count">0 positions</p>
           </div>
-          <button class="refresh-button" id="refresh-button" type="button">Refresh</button>
+          <div class="holdings-actions">
+            <div class="column-toggles" aria-label="Column visibility">
+              <button class="column-toggle" id="toggle-cost" type="button" aria-pressed="false">
+                Cost
+              </button>
+              <button class="column-toggle" id="toggle-price" type="button" aria-pressed="false">
+                Price
+              </button>
+            </div>
+            <button class="refresh-button" id="refresh-button" type="button">Refresh</button>
+          </div>
         </div>
 
         <div class="table-wrap">
-          <table>
+          <table id="holdings-table">
             <thead>
               <tr>
-                <th>SYM</th>
+                <th>
+                  <button class="sort-button active" type="button" data-sort-key="symbol" data-sort-direction="asc">
+                    SYM <span class="sort-indicator">▲</span>
+                  </button>
+                </th>
                 <th>SHARES</th>
-                <th>COST</th>
-                <th>PRICE</th>
-                <th>DAY CHG</th>
-                <th>1D</th>
-                <th>3D</th>
-                <th>5D</th>
-                <th>20D</th>
+                <th data-column="cost">COST</th>
+                <th data-column="price">PRICE</th>
+                <th>
+                  <button class="sort-button" type="button" data-sort-key="dayChangeValue" data-sort-direction="none">
+                    DAY CHG <span class="sort-indicator">↕</span>
+                  </button>
+                </th>
+                <th>
+                  <button class="sort-button" type="button" data-sort-key="perf1d" data-sort-direction="none">
+                    1D <span class="sort-indicator">↕</span>
+                  </button>
+                </th>
+                <th>
+                  <button class="sort-button" type="button" data-sort-key="perf3d" data-sort-direction="none">
+                    3D <span class="sort-indicator">↕</span>
+                  </button>
+                </th>
+                <th>
+                  <button class="sort-button" type="button" data-sort-key="perf5d" data-sort-direction="none">
+                    5D <span class="sort-indicator">↕</span>
+                  </button>
+                </th>
+                <th>
+                  <button class="sort-button" type="button" data-sort-key="perf20d" data-sort-direction="none">
+                    20D <span class="sort-indicator">↕</span>
+                  </button>
+                </th>
               </tr>
             </thead>
             <tbody id="holdings-body">

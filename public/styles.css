@@ -139,6 +139,36 @@ h1 {
   padding: 24px 24px 0;
 }
 
+.holdings-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.column-toggles {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.column-toggle {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.column-toggle.active {
+  color: var(--text);
+  border-color: rgba(54, 230, 125, 0.55);
+  background: rgba(54, 230, 125, 0.12);
+}
+
 h2 {
   font-size: 2rem;
   letter-spacing: -0.04em;
@@ -171,18 +201,43 @@ table {
   border-collapse: collapse;
 }
 
+table.hide-cost [data-column="cost"],
+table.hide-price [data-column="price"] {
+  display: none;
+}
+
 thead th {
-  color: var(--muted);
-  font-size: 0.88rem;
-  font-weight: 700;
   text-align: left;
-  padding: 18px 24px;
+  padding: 18px 12px;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
 
+.sort-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.sort-button.active {
+  color: var(--text);
+}
+
+.sort-indicator {
+  font-size: 0.8em;
+  opacity: 0.9;
+}
+
 tbody td {
-  padding: 20px 24px;
+  padding: 20px 12px;
   border-bottom: 1px solid var(--line);
   font-weight: 600;
   white-space: nowrap;
@@ -265,13 +320,36 @@ tbody td:first-child {
   }
 
   .money {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
   }
 
   thead th,
   tbody td {
-    padding: 16px 12px;
-    font-size: 0.88rem;
+    padding: 10px 3px;
+    font-size: 1.08rem;
+  }
+
+  .sort-button {
+    gap: 2px;
+    font-size: 1.08rem;
+  }
+
+  tbody td {
+    font-size: 1.12rem;
+  }
+
+  tbody td:first-child {
+    font-size: 1.18rem;
+  }
+
+  #source-note,
+  #holdings-count {
+    font-size: 1.08rem;
+  }
+
+  .column-toggle,
+  .refresh-button {
+    font-size: 1.06rem;
   }
 
   .refresh-button {
@@ -281,5 +359,18 @@ tbody td:first-child {
   .holdings-head {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .holdings-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .column-toggles {
+    width: 100%;
+  }
+
+  .column-toggle {
+    flex: 1;
   }
 }
