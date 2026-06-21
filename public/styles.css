@@ -1,0 +1,285 @@
+:root {
+  --bg: #0b0e14;
+  --panel: #171b24;
+  --panel-2: #1d222d;
+  --line: rgba(255, 255, 255, 0.08);
+  --text: #f4f6fb;
+  --muted: rgba(244, 246, 251, 0.58);
+  --green: #36e67d;
+  --red: #ff6c6c;
+  --accent: #24db72;
+  --shadow: 0 28px 60px rgba(0, 0, 0, 0.34);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Manrope", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top right, rgba(54, 230, 125, 0.16), transparent 25%),
+    radial-gradient(circle at bottom left, rgba(77, 88, 255, 0.18), transparent 28%),
+    var(--bg);
+}
+
+.page {
+  width: min(1160px, calc(100vw - 24px));
+  margin: 0 auto;
+  padding: 24px 0 40px;
+}
+
+.hero,
+.holdings-card {
+  background: rgba(23, 27, 36, 0.9);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+}
+
+.hero {
+  padding: 28px;
+}
+
+.hero-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4.4rem);
+  letter-spacing: -0.06em;
+}
+
+#source-note,
+#holdings-count {
+  color: var(--muted);
+  margin-top: 8px;
+  font-size: 0.98rem;
+}
+
+.hero-change {
+  font-size: clamp(1.3rem, 4vw, 2.2rem);
+  font-weight: 800;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.card {
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 22px;
+}
+
+.split-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.split-side {
+  min-width: 110px;
+  padding-left: 18px;
+  border-left: 1px solid var(--line);
+}
+
+.accent-card .accent {
+  color: var(--accent);
+}
+
+.label {
+  display: block;
+  font-size: 0.92rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+.money {
+  display: block;
+  margin-top: 12px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+}
+
+.money.small {
+  font-size: 2rem;
+}
+
+.holdings-card {
+  margin-top: 22px;
+  overflow: hidden;
+}
+
+.holdings-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 24px 0;
+}
+
+h2 {
+  font-size: 2rem;
+  letter-spacing: -0.04em;
+}
+
+.refresh-button {
+  border: 0;
+  border-radius: 16px;
+  background: #e62f2f;
+  color: #fff;
+  font: inherit;
+  font-weight: 800;
+  padding: 15px 22px;
+  cursor: pointer;
+}
+
+.refresh-button:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  padding: 18px 0 0;
+}
+
+table {
+  width: 100%;
+  min-width: 860px;
+  border-collapse: collapse;
+}
+
+thead th {
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-align: left;
+  padding: 18px 24px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+tbody td {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--line);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+tbody td:first-child {
+  font-weight: 800;
+}
+
+.positive {
+  color: var(--green);
+}
+
+.negative {
+  color: var(--red);
+}
+
+.neutral {
+  color: var(--text);
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .split-card {
+    flex-direction: column;
+  }
+
+  .split-side {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding-left: 0;
+    padding-top: 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    width: min(100vw - 14px, 100%);
+    padding: 10px 0 24px;
+  }
+
+  .hero,
+  .holdings-card {
+    border-radius: 24px;
+  }
+
+  .hero,
+  .holdings-head {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hero {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .hero-head {
+    flex-direction: column;
+  }
+
+  .hero-change {
+    text-align: left;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .money {
+    font-size: 2.2rem;
+  }
+
+  thead th,
+  tbody td {
+    padding: 16px 12px;
+    font-size: 0.88rem;
+  }
+
+  .refresh-button {
+    width: 100%;
+  }
+
+  .holdings-head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

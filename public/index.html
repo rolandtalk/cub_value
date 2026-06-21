@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CUB Value</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <div class="hero-head">
+          <div>
+            <h1>CUB Portfolio</h1>
+            <p id="source-note">Loading MarketData.app prices...</p>
+          </div>
+          <div class="hero-change positive" id="hero-day-change">--</div>
+        </div>
+
+        <div class="summary-grid">
+          <article class="card">
+            <span class="label">Total Market Value</span>
+            <strong class="money" id="total-market-value">--</strong>
+          </article>
+          <article class="card split-card">
+            <div>
+              <span class="label">Total Cost Basis</span>
+              <strong class="money" id="total-cost-basis">--</strong>
+            </div>
+            <div class="split-side">
+              <span class="label">Gain %</span>
+              <strong class="money small" id="total-gain-percent">--</strong>
+            </div>
+          </article>
+          <article class="card accent-card">
+            <span class="label">Total Gain/Loss</span>
+            <strong class="money accent" id="total-gain-value">--</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="holdings-card">
+        <div class="holdings-head">
+          <div>
+            <h2>Holdings</h2>
+            <p id="holdings-count">0 positions</p>
+          </div>
+          <button class="refresh-button" id="refresh-button" type="button">Refresh</button>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>SYM</th>
+                <th>SHARES</th>
+                <th>COST</th>
+                <th>PRICE</th>
+                <th>DAY CHG</th>
+                <th>1D</th>
+                <th>3D</th>
+                <th>5D</th>
+                <th>20D</th>
+              </tr>
+            </thead>
+            <tbody id="holdings-body">
+              <tr>
+                <td colspan="9" class="empty-state">Loading holdings...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+  </html>
