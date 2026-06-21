@@ -148,7 +148,7 @@ h1 {
 .column-toggles {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 }
 
 .column-toggle {
@@ -157,9 +157,11 @@ h1 {
   background: transparent;
   color: var(--muted);
   font: inherit;
-  font-size: 0.88rem;
-  font-weight: 700;
-  padding: 10px 14px;
+  font-size: 1.12rem;
+  font-weight: 800;
+  line-height: 1;
+  padding: 18px 28px;
+  min-height: 60px;
   cursor: pointer;
 }
 
@@ -199,11 +201,6 @@ table {
   width: 100%;
   min-width: 860px;
   border-collapse: collapse;
-}
-
-table.hide-cost [data-column="cost"],
-table.hide-price [data-column="price"] {
-  display: none;
 }
 
 thead th {
@@ -347,7 +344,18 @@ tbody td:first-child {
     font-size: 1.08rem;
   }
 
-  .column-toggle,
+  .column-toggles {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .column-toggle {
+    flex: 1;
+    font-size: 1.22rem;
+    padding: 22px 18px;
+    min-height: 72px;
+  }
+
   .refresh-button {
     font-size: 1.06rem;
   }
@@ -364,13 +372,5 @@ tbody td:first-child {
   .holdings-actions {
     flex-direction: column;
     align-items: stretch;
-  }
-
-  .column-toggles {
-    width: 100%;
-  }
-
-  .column-toggle {
-    flex: 1;
   }
 }
